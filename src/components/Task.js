@@ -3,16 +3,21 @@ import PropTypes from 'prop-types';
 
 import './Task.css';
 
-const Task = ({ id, title, isComplete }) => {
+const Task = (props) => {
   const [complete, setComplete] = useState(isComplete);
-  const buttonClass = complete ? 'tasks__item__toggle--completed' : '';
+  const buttonClass = complete ? 'tasks__item__toggle--completed' : 'task__item__toggle--setComplete';
+
+  // const toggleButton = () => {
+  //   console.log("the toggle has been TOGGLED")
+  //   // props.(NAMEOFFUNCTION IN APP) (props.isComplete);
+  // };
+
 
   return (
     <li className="tasks__item">
-      <button
+      <button>
         className={`tasks__item__toggle ${buttonClass}`}
         onClick={() => setComplete(!complete)}
-      >
         {title}
       </button>
       <button className="tasks__item__remove button">x</button>
