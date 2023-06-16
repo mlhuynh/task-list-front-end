@@ -1,6 +1,10 @@
 # Task List Front End
 In this pair project, we will be working with state & events in React.  Then we will use the `useEffect` hook to update state from an API and persist state to an API with events.
 
+## Co-Working Agreement
+
+https://docs.google.com/document/d/1qC13aOCCov5qHYu-U_XDBPsw27Nq0dH2wB0qwK8UlSQ/edit
+
 ## Learning Goals
 
 The goals of this pair project are to:
