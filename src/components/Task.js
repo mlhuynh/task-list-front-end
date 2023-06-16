@@ -8,12 +8,12 @@ const Task = (props) => {
   const buttonClass = complete ? 'tasks__item__toggle--completed' : 'task__item__toggle--setComplete';
 
   const toggleButton = () => {
-    console.log("the toggle has been TOGGLED")
+    console.log("the toggle has been TOGGLED");
     props.updateComplete(props.id);
   };
 
   const deleteTask = () => {
-    console.log("Task deleted successfully")
+    console.log("Task deleted successfully");
     props.updateDelete(props.id);
   };
 
