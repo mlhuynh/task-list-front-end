@@ -7,11 +7,15 @@ const Task = (props) => {
   const [complete, setComplete] = useState(isComplete);
   const buttonClass = complete ? 'tasks__item__toggle--completed' : 'task__item__toggle--setComplete';
 
-  // const toggleButton = () => {
-  //   console.log("the toggle has been TOGGLED")
-  //   // props.(NAMEOFFUNCTION IN APP) (props.isComplete);
-  // };
+  const toggleButton = () => {
+    console.log("the toggle has been TOGGLED")
+    props.updateComplete(props.id);
+  };
 
+  const deleteTask = () => {
+    console.log("Task deleted successfully")
+    props.updateDelete(props.id);
+  };
 
   return (
     <li className="tasks__item">
@@ -20,7 +24,7 @@ const Task = (props) => {
         onClick={() => setComplete(!complete)}
         {title}
       </button>
-      <button className="tasks__item__remove button">x</button>
+      <button className="tasks__item__remove button" onClick={deleteTask}>x</button>
     </li>
   );
 };
