@@ -64,6 +64,24 @@ const toggleCompleteTask = (taskId) => {
       console.log('le task is not posting properly', error);
     });
   };
+
+  const deleteTask = (taskId) => {
+    axios
+      .delete(`https://task-list-api-c17.onrender.com/tasks/${taskId}`)
+      .then(() => {
+        const newTasks = [];
+        for (const t of tasks) {
+          const task = { ...t };
+          if (taskId !== task.id) {
+            newTasks.push(task);
+          }
+        }
+        setTasks(newTasks);
+      })
+      .catch((error) => {
+        console.log('le task is not deleting properly', error);
+      });
+  };
   
   return (
     <div className="App">
@@ -75,6 +93,7 @@ const toggleCompleteTask = (taskId) => {
           <TaskList 
             tasks={tasks} 
             onClickCallback={toggleCompleteTask}
+            deleteTaskCallback={deleteTask}
           />
         </div>
       </main>
