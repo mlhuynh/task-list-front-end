@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import './Task.css';
 
 const Task = (props) => {
-  const [complete, setComplete] = useState(isComplete);
-  const buttonClass = complete ? 'tasks__item__toggle--completed' : 'task__item__toggle--setComplete';
+  //const [complete, setComplete] = useState(true);
+  const buttonClass = props.isComplete ? 'tasks__item__toggle--completed' : 'task__item__toggle--setComplete';
 
   // const toggleButton = () => {
   //   console.log("the toggle has been TOGGLED");
@@ -46,8 +46,8 @@ Task.propTypes = {
   isComplete: PropTypes.bool.isRequired,  
   // updateComplete: PropTypes.func,
   // updateDelete: PropTypes.func,
-  onClickCallback: PropTypes.func.isRequired,
-  deleteTaskCallback: PropTypes.func.isRequired
+  onClickCallback: PropTypes.func,
+  deleteTaskCallback: PropTypes.func
 };
-
+// put required back after implementing
 export default Task;
