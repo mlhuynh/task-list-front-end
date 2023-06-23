@@ -12,7 +12,7 @@ const Task = (props) => {
   //   props.updateComplete(props.id);
   // };
 
-  const toggleButton = () => {
+  const toggleCompleteTask = () => {
     console.log('the toggle has been TOGGLED');
     props.onClickCallback(props.id);
   };
@@ -32,7 +32,7 @@ const Task = (props) => {
       <button
         className={`tasks__item__toggle ${buttonClass}`}
       
-        onClick={toggleButton}>
+        onClick={toggleCompleteTask}>
         {props.title}
       </button>
       <button onClick={deleteTask} className="tasks__item__remove button">x</button>

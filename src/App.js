@@ -20,6 +20,7 @@ import axios from 'axios';
 function App() {
   const [tasks, setTasks] = useState([]);
 
+  // Getting api calls from axios
   const loadTask = () => {
     axios
     .get('https://task-list-api-c17.onrender.com/tasks')
@@ -33,11 +34,36 @@ function App() {
     .catch((error) => {
       console.log('le error', error);
     });
-  }
+  };
 
   useEffect(() => {
     loadTask();
   }, []);
+
+const toggleCompleteTask = (taskId) => {
+  const newTasks = [];
+  let completionStatus = 'mark_complete';
+  for (const task of tasks) {
+  // tasks.forEach((task) => {
+    if (task.id === taskId) {
+      task.isComplete = !task.isComplete;
+      if (task.isComplete) {
+        completionStatus = 'mark_complete';
+      } else {
+        completionStatus = 'mark_incomplete';
+      }
+    }
+    newTasks.push(taskId);
+  }
+  axios
+    .patch(`https://task-list-api-c17.onrender.com/tasks/${taskId}/${completionStatus}`)
+    .then (() => {
+      setTasks(newTasks);
+    })
+    .catch((error) => {
+      console.log('le task is not posting properly', error);
+    });
+  };
   
   return (
     <div className="App">
@@ -45,10 +71,15 @@ function App() {
         <h1>Ada&apos;s Task List</h1>
       </header>
       <main>
-        <div><TaskList tasks={tasks} /></div>
+        <div>
+          <TaskList 
+            tasks={tasks} 
+            onClickCallback={toggleCompleteTask}
+          />
+        </div>
       </main>
     </div>
   );
-}
+};
 
 export default App;
