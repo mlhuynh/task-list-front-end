@@ -31,8 +31,8 @@ TaskList.propTypes = {
       isComplete: PropTypes.bool.isRequired,
     })
   ).isRequired,
-  onClickCallback: PropTypes.func.isRequired,
-  deleteTaskCallback: PropTypes.func.isRequired
+  onClickCallback: PropTypes.func,
+  deleteTaskCallback: PropTypes.func
 };
 
 export default TaskList;

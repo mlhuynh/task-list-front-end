@@ -29,13 +29,13 @@ const Task = (props) => {
 
   return (
     <li className="tasks__item">
-      <button>
+      <button
         className={`tasks__item__toggle ${buttonClass}`}
-        {/* onClick={() => setComplete(!complete)} */}
-        onClick={toggleButton}
+      
+        onClick={toggleButton}>
         {props.title}
       </button>
-      <button className="tasks__item__remove button" onClick={deleteTask}>x</button>
+      <button onClick={deleteTask} className="tasks__item__remove button">x</button>
     </li>
   );
 };
